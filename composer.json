@@ -6,7 +6,7 @@
     },
    "autoload": {
         "psr-0": {
-            "stccorp\yahoo-oauth2": "src"
+            "stccorp\\yahoo-oauth2": "src"
         }
     }
 }
