@@ -1,6 +1,6 @@
 <?php
 
-namespace stccorp\yahoo-oauth2;
+namespace stccorp\Yahoo;
 
 class YahooTokens
 {
