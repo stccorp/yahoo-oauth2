@@ -1,0 +1,10 @@
+{
+  "require": {
+        "php": ">=7.4.0"
+    },
+   "autoload": {
+        "psr-0": {
+            "stccorp\\yahoo-oauth2": "src"
+        }
+    }
+}
