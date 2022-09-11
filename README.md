@@ -23,7 +23,7 @@ $yahoo_client->setNonce($_SESSION['nonce']);
 
 You will have a page with the Yahoo login button , let say index.php
 ```sh
-require_once 'env/yconfig.php';
+require_once 'yconfig.php';
 
 $yahoo_login_btn = '<a alt="Sign in with Yahoo" href="' . filter_var($yahoo_client->createAuthUrl(), FILTER_SANITIZE_URL) . '"><img src="/assets/img/btn_yahoo_rectangle.png" width="200"/></a>';
 ```
@@ -31,7 +31,7 @@ $yahoo_login_btn = '<a alt="Sign in with Yahoo" href="' . filter_var($yahoo_clie
 
 Then you will need a yahoo_callback.php
 ```sh
-require_once 'env/yconfig.php';
+require_once 'yconfig.php';
 
 if (strlen($_GET['code'] ?? '') > 0) {
   $token = $yahoo_client->fetchAccessTokenWithAuthCode($code);
