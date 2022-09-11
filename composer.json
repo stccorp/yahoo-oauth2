@@ -1,6 +1,7 @@
 {
   "name": "stccorp/yahoo-oauth2",
   "description":"Libary to authenticate Yahoo users using Oauth2",
+  "version": "1.0.0",
   "require": {
         "php": ">=7.4.0"
     },
