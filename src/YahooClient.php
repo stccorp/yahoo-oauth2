@@ -152,7 +152,7 @@ class YahooClient
           $arraytoreturn = ['refresh_token' => '',
                                'access_token' => '',
                                'expires_in' =>'',
-                               'error' => $out2['error']
+                               'error' => $out2['error'],
                                'error_description' => $out2['error_description']
                             ];   
         }else{
