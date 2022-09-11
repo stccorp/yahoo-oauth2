@@ -132,12 +132,12 @@ class YahooClient
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $output = curl_exec($ch);
-        var_dump($output);
+       
 
         if ($output === FALSE) {
-            echo "Error sending" . " " . curl_error($ch);
+            //echo "Error sending" . " " . curl_error($ch);
             curl_close($ch);
-            echo json_encode(array());
+            //echo json_encode(array());
         } else {
             //echo "Done";
             curl_close($ch);
@@ -146,10 +146,22 @@ class YahooClient
 
 
         $out2 = json_decode($output, true);
+        
+        if (array_key_exists('error', $out2))
+        {
+          $arraytoreturn = ['refresh_token' => '',
+                               'access_token' => '',
+                               'expires_in' =>'',
+                               'error' => $out2['error']
+                               'error_description' => $out2['error_description']
+                            ];   
+        }else{
 
-        $arraytoreturn = array('refresh_token' => $out2['refresh_token'],
+            $arraytoreturn = ['refresh_token' => $out2['refresh_token'],
                                'access_token' => $out2['access_token'],
-                               'expires_in' => (time() + (int)$out2['expires_in']));
+                               'expires_in' => (time() + (int)$out2['expires_in'])
+                             ];
+        }
 
         return new YahooTokens(json_encode($arraytoreturn));
 
