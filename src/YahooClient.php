@@ -56,11 +56,6 @@ class YahooClient
     {
     }
 
-    static function generateNonce()
-    {
-        return bin2hex(random_bytes(128/8));
-    }
-
     function setNonce($v)
     {
         $this->nonce = $v;
