@@ -99,20 +99,10 @@ class YahooClient
     public function createAuthUrl()
     {
 
-        $url = YahooClient::AUTH_ENDPOINT . "?client_id=" . $this->client_id . "&scope=" . urlencode($this->scope ?? '') . "&nonce=" . $this->nonce . "&prompt=consent&response_type=code&redirect_uri=" . urlencode($this->redirect_url ?? '');
+        $url = YahooClient::AUTH_ENDPOINT . "?client_id=" . $this->client_id . "&scope=" . urlencode($this->scope ?? '') . "&nonce=" . $this->nonce . "&response_type=code&redirect_uri=". $this->redirect_url ;
+        //$url = YahooClient::AUTH_ENDPOINT . "?client_id=" . $this->client_id . "&scope=" . urlencode($this->scope ?? '') . "&nonce=" . $this->nonce . "&prompt=consent&response_type=code&redirect_uri=" . urlencode($this->redirect_url ?? '');
 
         return $url;
-        /*
-          $parameters = [
-            'response_type' => 'code',
-            'scope' => $this->scope,
-            'nonce' => $this->nonce,
-            'prompt' => 'consent',
-            'client_id' => $this->client_id,
-            'redirect_uri' => $this->redirect_url
-        ];
-        return YahooClient::AUTH_ENDPOINT . '?' . http_build_query($parameters, '', '&');
-        */
     }
 
     public function fetchAccessTokenWithAuthCode($auth_code)
